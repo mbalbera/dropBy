@@ -1,4 +1,5 @@
 import React from 'react'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const dictionary = ["a","b","c"]
 
@@ -25,23 +26,18 @@ class Dropdown extends React.Component {
             })
             if (selected.length > 0) {
                 all = selected.slice(0, 5).map(s =>
-                    <ul style={{ listStyle: 'none' }}>
-                        <li onClick={(event) => this.props.onChosen(event)}>{s}</li>
-                    </ul>
+                    <ScrollView style={{ listStyle: 'none' }}>
+                        <Text onClick={(event) => this.props.onChosen(event)}>{s}</Text>
+                    </ScrollView>
                 )
             }
         }
-        if (all.length > 0) {
-            return (
-                <div style={{ borderStyle: 'outset' }}>
-                    {all}
-                </div>
-            )
-        } else {
-            return (
-                null
-            )
-        }
+        return (
+            <View style={{ borderStyle: 'outset' }}>
+                {all.length > 0 ? all : <Text>Try a different search word</Text>}
+            </View>
+        )
+        
     }
 }
 export default Dropdown

@@ -6,13 +6,10 @@ const dictionary = ["a","b","c"]
 class Dropdown extends React.Component {
 
     state = {
-        hov: false,
         dict2: []
     }
 
-    toggleHover() {
-        this.setState({ hov: !this.state.hover })
-    }
+
 
     render() {
         let all = []
@@ -27,7 +24,7 @@ class Dropdown extends React.Component {
             if (selected.length > 0) {
                 all = selected.slice(0, 5).map(s =>
                     <ScrollView style={{ listStyle: 'none' }}>
-                        <Text onClick={(event) => this.props.onChosen(event)}>{s}</Text>
+                        <Text onPress={(event) => this.props.onChosen(event.target.value)}>{s}</Text>
                     </ScrollView>
                 )
             }

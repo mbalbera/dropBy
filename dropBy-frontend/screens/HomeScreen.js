@@ -12,9 +12,8 @@ import SearchResults from '../components/SearchResults'
    onType = (event) => {
      this.setState({ typed: event })
    }
-   onChosen = (event) => {
-     // console.log("event", event.target.innerText)
-     this.setState({ typed: event.target.innerText })
+   onChosen = (s) => {
+     this.setState({ typed: s })
    }
    onClear = () => {
      this.setState({ typed: "" })

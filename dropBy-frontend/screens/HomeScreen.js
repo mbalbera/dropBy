@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import Categories from '../components/Categories'
 import SearchResults from '../components/SearchResults'

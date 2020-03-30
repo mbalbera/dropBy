@@ -34,7 +34,7 @@ import SearchResults from '../components/SearchResults'
             />
           </View>
           <View style={{height:'75%'}}>
-            {!this.state.typed ? <Categories /> : <SearchResults typed={this.state.typed} />}
+            {this.state.typed ? <Categories /> : <SearchResults typed={this.state.typed} />}
           </View>
         </View>
       );

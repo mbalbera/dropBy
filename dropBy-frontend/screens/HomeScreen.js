@@ -21,7 +21,6 @@ import SearchResults from '../components/SearchResults'
    }
 
    render(){
-     console.log('length=' ,this.state.typed.length)
       return (
         <View style={{ backgroundColor: 'rgb(255,246,222)', flex: 1 }}>
           <View style={{height:'20%', paddingTop:'3%',justifyContent:'space-around'}}> 
@@ -35,7 +34,7 @@ import SearchResults from '../components/SearchResults'
             />
           </View>
           <View style={{height:'75%'}}>
-            {this.state.typed.length === 0 ? <Categories /> : <SearchResults typed={this.state.typed} />}
+            {!this.state.typed ? <Categories /> : <SearchResults typed={this.state.typed} />}
           </View>
         </View>
       );

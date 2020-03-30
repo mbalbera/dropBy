@@ -18,27 +18,30 @@ const data = [
     
 ];
 
-const formatData = (data) => {
-    // numDoubleRows = data.length % 7
-    // let i = 0
-    // while (c){
-    //     if(i <= 2){
-            
-    //     }
-    // }
+const formatData = (data, numColumns) => {
+    const numberOfFullRows = Math.floor(data.length / numColumns);
+
+    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+        data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+        numberOfElementsLastRow++;
+    }
+
+    return data;
 };
 
 
 
-const numColumns = 4;
-function Categories() {
+const numColumns = 3;
+function Categories(props) {
+
     return (
         <View>
             <FlatList
                 data={formatData(data, numColumns)}
                 style={styles.container}
                 renderItem={({ item }) =>
-                    <TouchableOpacity key={item.key} style={styles.item} onPress={(e) => console.log(e)}>
+                    <TouchableOpacity style={styles.item} onPress={() => console.log(item.title)}>
                         <Image style={styles.pics} source={item.img_path} />
                     </TouchableOpacity>
                 }
